@@ -1,0 +1,49 @@
+$primary: #00945f;
+$secondary: #6c757d;
+$button: #e97300;
+$white:#ffffff;
+$black:#000000;
+$link:#92b839;
+$font-family-base: 'Arial', sans-serif;
+
+$text: #888888;
+
+$container-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1230px
+);
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+$columns: 12;
+
+.button {
+  background-color: $button;  
+  color: $white;
+  padding: 10px 20px;
+  border: none; 
+  font-size: 16px;
+  cursor: pointer; 
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($primary, 10%); 
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus {
+    outline: none; 
+  }
+}

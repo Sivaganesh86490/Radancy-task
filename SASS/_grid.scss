@@ -1,0 +1,45 @@
+@import 'mixins';
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @include media-up(sm) { max-width: 540px; }
+  @include media-up(md) { max-width: 720px; }
+  @include media-up(lg) { max-width: 960px; }
+  @include media-up(xl) { max-width: 1140px; }
+  @include media-up(xxl) { max-width: 1230px; }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+
+  @include media-up(sm) { margin: 0 -10px; }
+}
+
+[class*="col-"] {
+  padding: 0 15px;
+  box-sizing: border-box;
+  flex: 1 0 100%;
+}
+
+@mixin generate-columns($prefix, $breakpoint) {
+  @include media-up($breakpoint) {
+    @for $i from 1 through 12 {
+      .#{$prefix}-#{$breakpoint}-#{$i} {
+        flex: 0 0 (100% / 12) * $i;
+        max-width: (100% / 12) * $i;
+      }
+    }
+  }
+}
+
+@include generate-columns('col', 'sm');
+@include generate-columns('col', 'md');
+@include generate-columns('col', 'lg');
+@include generate-columns('col', 'xl');
+@include generate-columns('col', 'xxl');
